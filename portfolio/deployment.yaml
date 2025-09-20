@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: my-portfolio-dep
+ namespace: kuma-system
+ labels:
+  app: my-portfolio
+  type: frontend
+spec:
+ template:
+  metadata: 
+   name: my-portfolio-pod
+   namespace: kuma-system
+   labels:
+    app: my-portfolio
+    type: frontend
+  spec:
+   containers:
+   - name: my-portfolio
+     image: portfolio:1.0
+     imagePullPolicy: IfNotPresent
+     ports:
+     - containerPort: 80
+ replicas: 3
+ selector:
+  matchLabels:
+   app: my-portfolio
+   type: frontend
+ 
+  
