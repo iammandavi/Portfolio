@@ -4,8 +4,11 @@ make sure to run docker desktop in background
 
 1. check minikube status 
     minikube status
+    minikube status --profile=<clustername>
 if stoped then start minikube
     minikube start
+    minikube start --profile=<clustername>
+
 
 2. Start docker driver
 minikube start --driver=docker
